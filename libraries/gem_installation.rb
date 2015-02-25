@@ -1,6 +1,6 @@
 begin
   require 'ipaddr_extensions'
-rescue LoadError
+rescue Gem::LoadError
   if Gem.respond_to?(:install)
     Gem.install 'ipaddr_extensions'
   else
