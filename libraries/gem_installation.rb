@@ -1,6 +1,4 @@
-begin
-  require 'ipaddr_extensions'
-rescue Gem::LoadError
+
   if Gem.respond_to?(:install)
     Gem.install 'ipaddr_extensions'
   else
@@ -22,4 +20,3 @@ rescue Gem::LoadError
   ohai.all_plugins
   count = ObjectSpace.each_object(Chef::Node) { |n| n.automatic_attrs.merge! ohai.data }
   raise "Whoops! Expected to monkey patch only the current node, found multiple" if count > 1
-end
